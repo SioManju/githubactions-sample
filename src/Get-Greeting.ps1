@@ -3,5 +3,7 @@ function Get-Greeting {
     param (
         [string]$Name = "World"
     )
-    return "Hello, $Name!"
+    "Hello, $Name!"
 }
+
+Write-Host "Get-Greeting function loaded successfully."

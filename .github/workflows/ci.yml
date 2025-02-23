@@ -13,10 +13,11 @@ jobs:
 
       - name: Install Pester
         run: |
-          Install-Module -Name Pester -Force -Scope CurrentUser
+          Install-Module -Name Pester -Force -SkipPublisherCheck -Scope CurrentUser
         shell: pwsh
 
       - name: Run Pester tests
         run: |
-          Invoke-Pester -Script 'tests/Get-Greeting.Tests.ps1' -Output Detailed
+          . ./src/Get-Greeting.ps1
+          Invoke-Pester -Script tests/Get-Greeting.Tests.ps1 -Passthru
         shell: pwsh
